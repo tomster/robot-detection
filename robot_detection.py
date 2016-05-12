@@ -659,6 +659,12 @@ robot_useragents = [
 
 robot_useragents = [re.compile(x) for x in robot_useragents]
 
+try:
+  basestring
+except NameError:
+  basestring = str
+
+
 def is_robot(user_agent):
     if not isinstance(user_agent, basestring):
         raise TypeError
